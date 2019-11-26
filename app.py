@@ -3,13 +3,12 @@ import logging
 from botocore.exceptions import ClientError
 import os
 from time import sleep
-from functions import *
 import sys
 import user
 import requests
 import os
 import subprocess
-import platform
+
 
 """ 
 DEFINICÃO DOS CLIENTES - regiao1
