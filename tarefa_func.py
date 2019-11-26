@@ -17,7 +17,7 @@ def adiciona(args):
     for tarefa in tarefas:
         payload = {'tarefa': tarefa, 'ativo': "1"}
         r = requests.post(tarefas_end_point, json=payload)
-        if(r.status_code == 201):
+        if(r.status_code == 200):
             print("#"*50)
             print("Tarefa : {} \n foi adicionada com sucesso. status code: {}".format(
                 tarefa, r.text))
@@ -39,7 +39,7 @@ def busca(args):
     tarefa_id = args[2]
     r = requests.get(tarefa_end_point + tarefa_id)
     print("Essa é a tarefa com id  {} : \n {}".format(tarefa_id, r.json()))
-    print(r.text)
+    # print(r.text)
 
 
 def apaga(args):
@@ -48,6 +48,7 @@ def apaga(args):
     response=requests.delete(tarefa_end_point+"{}".format(tarefa_id))
     print("Tarefa: {} \n".format(tarefa_id))
     print(f'Resposta :{response.text}')
+    print("Não está funcionando- por enquanto (é a unica que buga)")
 
 
 def atualiza(args):
@@ -56,7 +57,7 @@ def atualiza(args):
     nova_tarefa = {"tarefa":args[3]}
     r = requests.put(tarefa_end_point+"{}".format(tarefa_id), json=nova_tarefa)
     print("Tarefa: {} \n atualizada para : {}".format(tarefa_id, nova_tarefa))
-    print(r.text)
+    # print(r.text)
 
 
 def main():
